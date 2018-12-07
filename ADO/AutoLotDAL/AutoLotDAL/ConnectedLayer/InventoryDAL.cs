@@ -112,6 +112,27 @@ namespace AutoLotDAL.ConnectedLayer
         }
 
 
+        public DataTable GetAllInventoryAsDataTable()
+        {
+            // This will hold the records.
+            DataTable dataTable = new DataTable();
+
+            // Prep command object
+            string sql = "SELECT * FROM Inventory";
+
+            using (SqlCommand cmd = new SqlCommand(sql, _sqlConnection))
+            {
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                // Fill the DataTable with data from the reader and clean up
+                dataTable.Load(dataReader);
+                dataReader.Close();
+            }
+
+            return dataTable;
+        }
+
+
         public string LookUpPetName(int carId)
         {
             string carPetName;

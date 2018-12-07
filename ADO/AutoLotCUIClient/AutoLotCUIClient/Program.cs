@@ -85,23 +85,82 @@ namespace AutoLotCUIClient
 
         private static void ListInventory(InventoryDAL invDAL)
         {
-            throw new NotImplementedException();
+            // Get the list of inventory
+            DataTable dt = invDAL.GetAllInventoryAsDataTable();
+
+            // Pass DataTable to helper function to display
+            DisplayTable(dt);
         }
+
+
+        private static void ListInventoryViaList(InventoryDAL invDAL)
+        {
+            // Get the list of inventory
+            List<NewCar> record = invDAL.GetAllInventoryAsList();
+
+            Console.WriteLine("CarId:\tMake:\tColor:\tPetName:");
+
+            foreach (NewCar c in record)
+            {
+                Console.WriteLine($"{c.CarId}\t{c.Make}\t{c.Color}\t{c.PetName}");
+            }
+        }
+
 
         private static void DeleteCar(InventoryDAL invDAL)
         {
-            throw new NotImplementedException();
+            // Get ID of the car to delete
+            Console.Write("Enter ID of the Car to delete: ");
+            int id = int.Parse(Console.ReadLine() ?? "0");
+
+            // Just in case you have a referential integration violation!
+            try
+            {
+                invDAL.DeleteCar(id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
+
 
         private static void UpdateCarPetName(InventoryDAL invDAL)
         {
-            throw new NotImplementedException();
+            // First get the user data
+            Console.Write("Enter Car ID: ");
+            var carId = int.Parse(Console.ReadLine() ?? "0");
+            Console.Write("Enter New Pet Name: ");
+            var newCarPetName = Console.ReadLine();
+
+            // Now pass to data access library
+            invDAL.UpdateCarPetName(carId, newCarPetName);
         }
+
 
         private static void InsertNewCar(InventoryDAL invDAL)
         {
-            throw new NotImplementedException();
+            Console.Write("Enter Car ID: ");
+            var newCarId = int.Parse(Console.ReadLine() ?? "0");
+            Console.Write("Enter Car Color: ");
+            var newCarColor = Console.ReadLine();
+            Console.Write("Enter Car ID: ");
+            var newCarMake = Console.ReadLine();
+            Console.Write("Enter Pet Name: ");
+            var newCarPetName = Console.ReadLine();
+
+            // Now pass to data access library
+            var c = new NewCar
+            {
+                CarId = newCarId,
+                Color = newCarColor,
+                Make = newCarMake,
+                PetName = newCarPetName
+            };
+
+            invDAL.InsertAuto(c);
         }
+
 
         private static void ShowInstructions()
         {
@@ -113,5 +172,27 @@ namespace AutoLotCUIClient
             Console.WriteLine("P: Looks up pet name.");
             Console.WriteLine("Q: Quits program.");
         }
+
+
+        private static void DisplayTable(DataTable dt)
+        {
+            // Print out the column names
+            for (int curCol = 0; curCol < dt.Columns.Count; curCol++)
+            {
+                Console.Write($"{dt.Columns[curCol].ColumnName}\t");
+            }
+            Console.WriteLine("\n------------------------------------");
+
+            // Print the DataTable
+            for (int curRow = 0; curRow < dt.Rows.Count; curRow++)
+            {
+                for (int curCol = 0; curCol < dt.Columns.Count; curCol++)
+                {
+                    Console.Write($"{dt.Rows[curRow][curCol]}\t");
+                }
+                Console.WriteLine();
+            }
+        }
+
     }
 }
