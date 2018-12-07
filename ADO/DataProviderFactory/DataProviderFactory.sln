@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProviderFactory", "DataProviderFactory\DataProviderFactory.csproj", "{E458981C-02F3-44A0-BF2E-367487E8022F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLotDataReader", "AutoLotDataReader\AutoLotDataReader.csproj", "{5DA793FA-E0AD-4580-9299-C8CFC87F9B4A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E458981C-02F3-44A0-BF2E-367487E8022F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E458981C-02F3-44A0-BF2E-367487E8022F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E458981C-02F3-44A0-BF2E-367487E8022F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E458981C-02F3-44A0-BF2E-367487E8022F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DA793FA-E0AD-4580-9299-C8CFC87F9B4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DA793FA-E0AD-4580-9299-C8CFC87F9B4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DA793FA-E0AD-4580-9299-C8CFC87F9B4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DA793FA-E0AD-4580-9299-C8CFC87F9B4A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2C29DC07-131E-47B2-AE15-09A5C61CCE56}
+	EndGlobalSection
+EndGlobal
