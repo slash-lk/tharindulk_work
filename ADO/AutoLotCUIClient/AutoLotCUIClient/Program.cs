@@ -80,7 +80,11 @@ namespace AutoLotCUIClient
 
         private static void LookUpPetName(InventoryDAL invDAL)
         {
-            throw new NotImplementedException();
+            // Get ID of car to look up
+            Console.Write("Enter ID of the Car to look up: ");
+            int id = int.Parse(Console.ReadLine() ?? "0");
+
+            Console.WriteLine($"Petname of {id} is {invDAL.LookUpPetName(id).TrimEnd()}.");
         }
 
         private static void ListInventory(InventoryDAL invDAL)

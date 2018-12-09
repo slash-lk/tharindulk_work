@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLotCUIClient", "AutoLotCUIClient\AutoLotCUIClient.csproj", "{2A2B1A6A-1750-4C09-8554-F766682062B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoNetTransaction", "AdoNetTransaction\AdoNetTransaction.csproj", "{87DC88A5-63DD-4CE4-A6A4-EB765B414F49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2A2B1A6A-1750-4C09-8554-F766682062B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A2B1A6A-1750-4C09-8554-F766682062B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A2B1A6A-1750-4C09-8554-F766682062B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87DC88A5-63DD-4CE4-A6A4-EB765B414F49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87DC88A5-63DD-4CE4-A6A4-EB765B414F49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87DC88A5-63DD-4CE4-A6A4-EB765B414F49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87DC88A5-63DD-4CE4-A6A4-EB765B414F49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

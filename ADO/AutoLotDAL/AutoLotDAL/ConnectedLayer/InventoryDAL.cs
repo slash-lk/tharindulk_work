@@ -15,7 +15,7 @@ namespace AutoLotDAL.ConnectedLayer
 
         public void OpenConnection(string connectionString)
         {
-            _sqlConnection.ConnectionString = connectionString;
+            _sqlConnection = new SqlConnection(connectionString);
             _sqlConnection.Open();
         }
 
@@ -169,6 +169,68 @@ namespace AutoLotDAL.ConnectedLayer
                 carPetName = (string)command.Parameters["@petName"].Value;
             }
             return carPetName;
+        }
+
+
+        public void ProcessCreditRisk(bool throwEx, int custId)
+        {
+            // First, look up current name based on customer ID
+            string fName;
+            string lName;
+
+            var cmdSelect = new SqlCommand($"SELECT * FROM Customers WHERE CustId = {custId}", _sqlConnection);
+
+            using (var dataReader = cmdSelect.ExecuteReader())
+            {
+                if (dataReader.HasRows)
+                {
+                    dataReader.Read();
+                    fName = (string)dataReader["FirstName"];
+                    lName = (string)dataReader["LastName"];
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            // Create command objects that represent each step of the operation.
+            var cmdRemove = new SqlCommand($"DELETE FROM Customers WHERE CustId = {custId}", _sqlConnection);
+
+            var cmdInsert = new SqlCommand($"INSERT INTO CreditRisks(FirstName, LastName) VALUES ('{fName}', '{lName}')", _sqlConnection);
+
+            // We will get this from the connection object
+            SqlTransaction tx = null;
+
+            try
+            {
+                tx = _sqlConnection.BeginTransaction();
+
+                // Enlist the commands in to this transaction
+                cmdInsert.Transaction = tx;
+                cmdRemove.Transaction = tx;
+
+                // Execute the commands
+                cmdInsert.ExecuteNonQuery();
+                cmdRemove.ExecuteNonQuery();
+
+                // Simulate error
+                if (throwEx)
+                {
+                    throw new Exception("Sorry! Database error! Tx failed...");
+                }
+
+                // Commit it!
+                tx.Commit();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+                // Any error will roll back transaction.
+                // Using the new conditional access operator to check for null.
+                tx?.Rollback();
+            }
         }
     }
 }
