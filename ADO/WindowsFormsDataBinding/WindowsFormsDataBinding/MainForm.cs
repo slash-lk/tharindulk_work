@@ -65,5 +65,74 @@ namespace WindowsFormsDataBinding
             // Bind the DataTable to the carInventoryGridView
             carInventoryGridView.DataSource = inventoryTable;
         }
+
+
+        // Remove this row from the DataRowCollection
+        private void btnRemoveCar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Find the correct row to delete
+                DataRow[] rowToDelete = inventoryTable.Select($"Id={int.Parse(txtCarToRemove.Text)}");
+
+                // Delete it
+                rowToDelete[0].Delete();
+                inventoryTable.AcceptChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnDisplayMake_Click(object sender, EventArgs e)
+        {
+            // Build a filter based on user input
+            string filterStr = $"Make='{txtMakeToView.Text}'";
+
+            // Find all rows matching the filter
+            DataRow[] makes = inventoryTable.Select(filterStr);
+
+            // Show what we got!
+            if (makes.Length == 0)
+            {
+                MessageBox.Show("Sorry, no cars...", "Selection error!");
+            }
+            else
+            {
+                string strMake = null;
+
+                for (int i = 0; i < makes.Length; i++)
+                {
+                    strMake += makes[i]["PetName"] + "\n";
+                }
+
+                // Now show all matches in a message box
+                MessageBox.Show(strMake, $"We have {txtMakeToView.Text}s named:");
+            }
+        }
+
+        // Find the rows you want to edit with a filter
+        private void btnChangeMakes_Click(object sender, EventArgs e)
+        {
+            // Make sure user has not lost his mind
+            if (MessageBox.Show("Are you sure?? BMWs are much nicer than Yugos!", "Please Confirm!", MessageBoxButtons.YesNo) != DialogResult.Yes)
+            {
+                return;
+            }
+
+            // Build a filter
+            string filterStr = "Make='BMW'";
+
+            // Find all rows matching the filter
+            DataRow[] makes = inventoryTable.Select(filterStr);
+
+            // Change all Beemers to Yugos!
+            for (int i = 0; i < makes.Length; i++)
+            {
+                makes[i]["Make"] = "Yugo";
+            }
+            inventoryTable.AcceptChanges();
+        }
     }
 }
