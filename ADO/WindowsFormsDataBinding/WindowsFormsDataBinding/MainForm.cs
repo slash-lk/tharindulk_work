@@ -18,6 +18,8 @@ namespace WindowsFormsDataBinding
         // Inventory information.
         DataTable inventoryTable = new DataTable();
 
+        DataView yugosOnlyView;
+
         public MainForm()
         {
             InitializeComponent();
@@ -35,9 +37,24 @@ namespace WindowsFormsDataBinding
                 new Car { Id = 8, PetName = "Sarah", Make = "Colt", Color = "Black" }
             };
 
+            // Make a data table
             CreateDataTable();
+
+            // Make a view
+            CreateDataView();
         }
 
+        private void CreateDataView()
+        {
+            // Set the table that is used to construct this view
+            yugosOnlyView = new DataView(inventoryTable);
+
+            // Now configure the view using a filter
+            yugosOnlyView.RowFilter = "Make = 'Yugo'";
+
+            // Bind to the new grid
+            dataGridYugosView.DataSource = yugosOnlyView;
+        }
 
         void CreateDataTable()
         {

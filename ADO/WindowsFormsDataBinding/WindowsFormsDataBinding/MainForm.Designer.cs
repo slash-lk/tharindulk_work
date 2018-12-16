@@ -31,15 +31,18 @@
             this.carInventoryGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtCarToRemove = new System.Windows.Forms.TextBox();
             this.btnRemoveCar = new System.Windows.Forms.Button();
+            this.txtCarToRemove = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtMakeToView = new System.Windows.Forms.TextBox();
             this.btnDisplayMake = new System.Windows.Forms.Button();
+            this.txtMakeToView = new System.Windows.Forms.TextBox();
             this.btnChangeMakes = new System.Windows.Forms.Button();
+            this.dataGridYugosView = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.carInventoryGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridYugosView)).BeginInit();
             this.SuspendLayout();
             // 
             // carInventoryGridView
@@ -71,13 +74,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Enter ID of the Car to Remove:";
             // 
-            // txtCarToRemove
-            // 
-            this.txtCarToRemove.Location = new System.Drawing.Point(6, 46);
-            this.txtCarToRemove.Name = "txtCarToRemove";
-            this.txtCarToRemove.Size = new System.Drawing.Size(100, 20);
-            this.txtCarToRemove.TabIndex = 0;
-            // 
             // btnRemoveCar
             // 
             this.btnRemoveCar.Location = new System.Drawing.Point(112, 43);
@@ -87,6 +83,13 @@
             this.btnRemoveCar.Text = "Delete!";
             this.btnRemoveCar.UseVisualStyleBackColor = true;
             this.btnRemoveCar.Click += new System.EventHandler(this.btnRemoveCar_Click);
+            // 
+            // txtCarToRemove
+            // 
+            this.txtCarToRemove.Location = new System.Drawing.Point(6, 46);
+            this.txtCarToRemove.Name = "txtCarToRemove";
+            this.txtCarToRemove.Size = new System.Drawing.Size(100, 20);
+            this.txtCarToRemove.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -99,13 +102,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Enter the Make to View:";
             // 
-            // txtMakeToView
-            // 
-            this.txtMakeToView.Location = new System.Drawing.Point(7, 45);
-            this.txtMakeToView.Name = "txtMakeToView";
-            this.txtMakeToView.Size = new System.Drawing.Size(100, 20);
-            this.txtMakeToView.TabIndex = 0;
-            // 
             // btnDisplayMake
             // 
             this.btnDisplayMake.Location = new System.Drawing.Point(114, 42);
@@ -115,6 +111,13 @@
             this.btnDisplayMake.Text = "View!";
             this.btnDisplayMake.UseVisualStyleBackColor = true;
             this.btnDisplayMake.Click += new System.EventHandler(this.btnDisplayMake_Click);
+            // 
+            // txtMakeToView
+            // 
+            this.txtMakeToView.Location = new System.Drawing.Point(7, 45);
+            this.txtMakeToView.Name = "txtMakeToView";
+            this.txtMakeToView.Size = new System.Drawing.Size(100, 20);
+            this.txtMakeToView.TabIndex = 0;
             // 
             // btnChangeMakes
             // 
@@ -126,11 +129,31 @@
             this.btnChangeMakes.UseVisualStyleBackColor = true;
             this.btnChangeMakes.Click += new System.EventHandler(this.btnChangeMakes_Click);
             // 
+            // dataGridYugosView
+            // 
+            this.dataGridYugosView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridYugosView.Location = new System.Drawing.Point(12, 488);
+            this.dataGridYugosView.Name = "dataGridYugosView";
+            this.dataGridYugosView.Size = new System.Drawing.Size(453, 162);
+            this.dataGridYugosView.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(8, 460);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 20);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Only Yugos";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 662);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dataGridYugosView);
             this.Controls.Add(this.btnChangeMakes);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -143,6 +166,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridYugosView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,6 +183,8 @@
         private System.Windows.Forms.Button btnDisplayMake;
         private System.Windows.Forms.TextBox txtMakeToView;
         private System.Windows.Forms.Button btnChangeMakes;
+        private System.Windows.Forms.DataGridView dataGridYugosView;
+        private System.Windows.Forms.Label label2;
     }
 }
 
