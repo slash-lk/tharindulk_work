@@ -1,22 +1,10 @@
 
-public class ReadheadDuck extends Duck implements FlyBehavior, QuackBehavior {
+public class ReadheadDuck extends Duck {
 
 	@Override
 	void display() {
 		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public void quack() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void fly() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

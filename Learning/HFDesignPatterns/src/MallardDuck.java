@@ -1,22 +1,21 @@
 
-public class MallardDuck extends Duck implements FlyBehavior, QuackBehavior {
+public class MallardDuck extends Duck {
+
+	
+	public MallardDuck() {
+		// MallardDuck inherits the quackBehavior and flyBehavior instance variables from class Duck.
+		
+		// A MallardDuck uses the Quack class to handle its quack, so when performQuack is called,
+		// the responsibility for the quack is delegated to the Quack object and we get a real quack.
+		quackBehavior = new Quack();
+		
+		flyBehavior = new FlyWithWings();
+	}
 
 	@Override
 	void display() {
-		// TODO Auto-generated method stub
+		System.out.println("I'm a Mallard Duck!");
 
-	}
-
-	@Override
-	public void fly() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void quack() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
