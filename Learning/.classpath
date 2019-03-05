@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="HFDP/HFDesignPatterns/src"/>
+	<classpathentry kind="src" path="HFDP/WeatherStation/src"/>
+	<classpathentry kind="src" path="HFDP/WeatherStationV1/src"/>
+	<classpathentry kind="output" path="HFDP/WeatherStation/bin"/>
+</classpath>
